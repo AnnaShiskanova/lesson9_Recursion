@@ -1,9 +1,10 @@
-﻿static void Task66()
+﻿static void Task64()
 {
-    /*Задача 66: Задайте значения M и N. Напишите программу, которая 
-    найдёт сумму натуральных элементов в промежутке от M до N.
-    M = 1; N = 15 -> 120
-    M = 4; N = 8. -> 30*/
+    /*Задача 64: Задайте значение N. Напишите программу, 
+    которая выведет все натуральные числа в промежутке от N до 1. Выполнить с помощью рекурсии.
+
+    N = 5 -> "5, 4, 3, 2, 1"
+    N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"*/
 
     int PutNumber(string message)
     {
@@ -12,13 +13,37 @@
         return number;
     }
 
-    int SumNumber(int m, int n)
+    string ReturnNumber(int n)
     {
-        if (m == n) return n;  
-        return m + SumNumber(m + 1, n);
+        if (n == 1) return 1 + " ";  
+        return n + " " + ReturnNumber(n - 1);
     }
     
-    System.Console.WriteLine(SumNumber(PutNumber("Введите M:  "), PutNumber("Введите N: ")));
+    System.Console.WriteLine(ReturnNumber(PutNumber("Введите n: ")));
+    }
+
+
+    static void Task66()
+    {
+        /*Задача 66: Задайте значения M и N. Напишите программу, которая 
+        найдёт сумму натуральных элементов в промежутке от M до N.
+        M = 1; N = 15 -> 120
+        M = 4; N = 8. -> 30*/
+
+        int PutNumber(string message)
+        {
+            System.Console.WriteLine(message);
+            int number = Convert.ToInt32(Console.ReadLine());
+            return number;
+        }
+
+        int SumNumber(int m, int n)
+        {
+            if (m == n) return n;  
+            return m + SumNumber(m + 1, n);
+        }
+        
+        System.Console.WriteLine(SumNumber(PutNumber("Введите M:  "), PutNumber("Введите N: ")));
 
 }
 
@@ -44,7 +69,7 @@ static void Task68()
     }
     System.Console.WriteLine(Akkerman(PutNumber("Введите M:  "), PutNumber("Введите N: ")));
 }
-Task68();
+Task64();
 
 
 
