@@ -65,6 +65,7 @@ static void Task69()
     int PowNumber(int a, int b)
     {
         if (b == 1) return a;
+        else if (b == 0) return 1;
         return a * PowNumber(a, b-1);
     }
     System.Console.WriteLine(PowNumber(PutNumber("Введите A:  "), PutNumber("Введите B: ")));
